@@ -5,18 +5,26 @@
       <!-- 1. Add Script to Header Tag -->
       <script type='text/javascript' src="https://macromedia--full.sandbox.my.site.com/bankingupdate/lightning/lightning.out.js"></script>   
       <!-- 2. Add Attributes and inform your salesforce Team to include them in Lightning Scheduler -->     
-       
+       <script type='text/javascript'>     
+         const queryString = window.location.search;
+         const urlParams = new URLSearchParams(queryString);
+         let mmEncryptedId = urlParams.get('mmEncryptedId')!= null ? urlParams.get('mmEncryptedId') : 'null';
+         console.log(mmType);
+      </script>  
    </head>
    <body>
+      <h1>This is an Integration Test from Salesforce to External Websites</h1>
+      <h2> Banking Information Update | Salesforce Flow</h2>
       <!-- 3. Use this Script alongwith other javascript Code -->     
       <script>
-         $Lightning.use("c:WebToCaseApp",
+         $Lightning.use("c:embeddedFlowBankingInfoUpdateApp",
              function() {
                  $Lightning.createComponent(
-                     "c:WebToCaseAuraComponent",
+                     "c:embeddedFlowBankingInfoUpdate",
                      {},
                      "mmBankingUpdate", // the DOM location to insert the component
-                     function() { // API name of the Flow 
+                     function(component) { // API name of the Flow 
+               
                      }
                  );
              },    'https://macromedia--full.sandbox.my.site.com/bankingupdate'  // Site endpoint
