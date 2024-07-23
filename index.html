@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Hello</title>
-</head>
-<body>
-    <h1>Hello, Hello</h1>
-</body>
+   <head>
+      <title>Salesforce Flow For Banking Info Update</title>
+      <!-- 1. Add Script to Header Tag -->
+      <script type='text/javascript' src="https://macromedia--full.sandbox.my.site.com/bankingupdate/lightning/lightning.out.js"></script>   
+      <!-- 2. Add Attributes and inform your salesforce Team to include them in Lightning Scheduler -->     
+       
+   </head>
+   <body>
+      <!-- 3. Use this Script alongwith other javascript Code -->     
+      <script>
+         $Lightning.use("c:WebToCaseApp",
+             function() {
+                 $Lightning.createComponent(
+                     "c:WebToCaseAuraComponent",
+                     {},
+                     "mmBankingUpdate", // the DOM location to insert the component
+                     function() { // API name of the Flow 
+                     }
+                 );
+             },    'https://macromedia--full.sandbox.my.site.com/bankingupdate'  // Site endpoint
+         );
+      </script>
+      <!-- 4. Define an Element where the Appointment Scheduler should be displayed -->
+      <div id="mmBankingUpdate">
+      </div>
+   </body>
 </html>
