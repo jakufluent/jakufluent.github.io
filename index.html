@@ -3,7 +3,7 @@
    <head>
       <title>Salesforce Flow For Banking Info Update</title>
       <!-- 1. Add Script to Header Tag -->
-      <script type='text/javascript' src="https://macromedia--full.sandbox.my.site.com/bankingInfoUpdateAura/lightning/lightning.out.js"></script>   
+      <script type='text/javascript' src="https://macromedia--full.sandbox.my.site.com/bankingupdate/lightning/lightning.out.js"></script>   
       <!-- 2. Add Attributes and inform your salesforce Team to include them in Lightning Scheduler -->      
       <script type='text/javascript'>     
          const queryString = window.location.search;
@@ -14,7 +14,7 @@
    <body>
       <h1>This is an Integration Test from Salesforce to External Websites</h1>
       <h2> Banking Information Update | Salesforce Flow</h2>
-      <p>Test</p>
+      <p>Test1</p>
       <!-- 3. Use this Script alongwith other javascript Code -->     
       <script>
          $Lightning.use("c:embeddedFlowBankingInfoUpdateApp",
@@ -27,7 +27,7 @@
                
                      }
                  );
-             },    'https://macromedia--full.sandbox.my.site.com/bankingInfoUpdateAura'  // Site endpoint
+             },    'https://macromedia--full.sandbox.my.site.com/bankingupdate'  // Site endpoint
          );
       </script>
       <!-- 4. Define an Element where the Appointment Scheduler should be displayed -->
