@@ -4,14 +4,12 @@
       <title>Salesforce Flow For Banking Info Update</title>
       <!-- 1. Add Script to Header Tag -->
       <script type='text/javascript' src="https://macromedia--full.sandbox.my.site.com/bankingupdate/lightning/lightning.out.js"></script>   
-      <!-- 2. Add Attributes and inform your salesforce Team to include them in Lightning Scheduler -->     
-      <!-- 
+      <!-- 2. Add Attributes and inform your salesforce Team to include them in Lightning Scheduler -->      
       <script type='text/javascript'>     
          const queryString = window.location.search;
          const urlParams = new URLSearchParams(queryString);
-         let mmEncryptedId = urlParams.get('mmEncryptedId')!= null ? urlParams.get('mmEncryptedId') : 'null';
+         let mmEncryptedId = urlParams.get('mmEncryptedId')!= null ? urlParams.get('mmEncryptedId') : '123';
       </script>  
-      -->
    </head>
    <body>
       <h1>This is an Integration Test from Salesforce to External Websites</h1>
