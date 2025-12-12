@@ -17,17 +17,17 @@
       <h1>This is an Integration Test from Salesforce to External Websites</h1>
       <!-- 3. Use this Script alongwith other javascript Code -->
       <!-- 4. Define an Element where the Appointment Scheduler should be displayed -->
-	   <div>last change: 12.12. 13:27</div>
+	   <div>last change: 12.12. 13:34</div>
       <div id="schedulerSalesforceDiv"></div>
       <script>
          console.log('lightning loaded: ' + window.$Lightning);
-		//let window.urlParameter_Language = "ENG";
+		let language = "ENG";
          $Lightning.use("c:embeddedFlowSchedulerApp",
              function() {
                  $Lightning.createComponent(
                      "c:embeddedFlowScheduler",
                      {
-						 Language: window.urlParameter_Language
+						 Language: language
 					 },
                      "schedulerSalesforceDiv", // the DOM location to insert the component
                      function() { // API name of the Flow 
