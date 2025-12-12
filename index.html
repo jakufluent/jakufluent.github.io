@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Salesforce Scheduler Test Embedded</title>
-        <script type='text/javascript' src="https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler/lightning/lightning.out.js"></script>    
-        <script type='text/javascript'>      
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            let urlParameter_DivisionCode = urlParams.get('divisionCode')!= null ? urlParams.get('divisionCode') : '';
-            let urlParameter_Language = urlParams.get('languageCode')!= null ? urlParams.get('languageCode') : '';
-        </script>  
-    </head>
-    <body>
-        <h1>This is an Integration Test from Salesforce to External Websites</h1>
-        
-        <div id="scheduler">
-        </div>
-
-        <script>
-            // This script now executes AFTER the div#scheduler exists in the DOM.
-            $Lightning.use("c:embeddedFlowSchedulerApp",
-                function() {
-                    $Lightning.createComponent(
-                        "c:embeddedFlowScheduler",
-                        {},
-                        "scheduler", // The target ID now exists!
-                        function() { // API name of the Flow  
-                        }
-                    );
-                },    'https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler'  // Site endpoint
-            );
-        </script>
-        
-    </body>
+   <head>
+      <title>Salesforce Scheduler Test Embedded</title>
+      <!-- 1. Add Script to Header Tag -->
+      <script type='text/javascript' src="https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler/lightning/lightning.out.js"></script>   
+      <!-- 2. Add Attributes and inform your salesforce Team to include them in Lightning Scheduler -->      
+      <script type='text/javascript'>     
+         const queryString = window.location.search;
+         const urlParams = new URLSearchParams(queryString);
+         let urlParameter_DivisionCode = urlParams.get('divisionCode')!= null ? urlParams.get('divisionCode') : '';
+         let urlParameter_Language = urlParams.get('languageCode')!= null ? urlParams.get('languageCode') : '';
+      </script>  
+   </head>
+   <body>
+      <h1>This is an Integration Test from Salesforce to External Websites</h1>
+      <!-- 3. Use this Script alongwith other javascript Code -->     
+      <script>
+         $Lightning.use("c:embeddedFlowSchedulerApp",
+             function() {
+                 $Lightning.createComponent(
+                     "c:embeddedFlowScheduler",
+                     {},
+                     "scheduler", // the DOM location to insert the component
+                     function() { // API name of the Flow 
+               
+                     }
+                 );
+             },    'https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler'  // Site endpoint
+         );
+      </script>
+      <!-- 4. Define an Element where the Appointment Scheduler should be displayed -->
+      <div id="scheduler">
+      </div>
+   </body>
 </html>
