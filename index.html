@@ -18,7 +18,7 @@
       <!-- 3. Use this Script alongwith other javascript Code -->
       <!-- 4. Define an Element where the Appointment Scheduler should be displayed -->
       <div id="schedulerSalesforceDiv">
-         <script type="text/javascript">
+         <!--<script type="text/javascript">
 			let urlParameter_Language = "ENG";
 			let urlParameter_BusinessUnitCode = "PFH";
 			        
@@ -30,7 +30,7 @@
       	let urlParameter_utmMedium = "(none)";
       	let urlParameter_utmSource = "(none)";
       	let urlParameter_utmTerm = "(none)";
-      	let urlParameter_voucherCode = "(none)"; 
+      	let urlParameter_voucherCode = "(none)"; -->
       
       	
       
@@ -42,6 +42,7 @@
       </div>
       <script>
          console.log('lightning loaded: ' + window.$Lightning);
+		let urlParameter_Language = "ENG";
          $Lightning.use("c:embeddedFlowSchedulerApp",
              function() {
                  $Lightning.createComponent(
