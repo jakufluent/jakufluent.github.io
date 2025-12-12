@@ -17,12 +17,13 @@
       <h1>This is an Integration Test from Salesforce to External Websites</h1>
       <!-- 3. Use this Script alongwith other javascript Code -->     
       <script>
+         console.log('lightning loaded: ' + window.$Lightning);
          $Lightning.use("c:embeddedFlowSchedulerApp",
              function() {
                  $Lightning.createComponent(
                      "c:embeddedFlowScheduler",
                      {},
-                     "scheduler", // the DOM location to insert the component
+                     "schedulerSalesforceDiv", // the DOM location to insert the component
                      function() { // API name of the Flow 
                         console.log('lightning out app loaded');
                      }
@@ -31,7 +32,7 @@
          );
       </script>
       <!-- 4. Define an Element where the Appointment Scheduler should be displayed -->
-      <div id="scheduler">
+      <div id="schedulerSalesforceDiv">
       </div>
    </body>
 </html>
