@@ -10,7 +10,7 @@
          const queryString = window.location.search;
          const urlParams = new URLSearchParams(queryString);
          let urlParameter_DivisionCode = urlParams.get('divisionCode')!= null ? urlParams.get('divisionCode') : '';
-         let urlParameter_Language = urlParams.get('languageCode')!= null ? urlParams.get('languageCode') : '';
+         window.urlParameter_Language = 'ENG';//urlParams.get('languageCode')!= null ? urlParams.get('languageCode') : '';
       </script>  
    </head>
    <body>
@@ -20,7 +20,7 @@
       <div id="schedulerSalesforceDiv"></div>
       <script>
          console.log('lightning loaded: ' + window.$Lightning);
-		let window.urlParameter_Language = "ENG";
+		//let window.urlParameter_Language = "ENG";
          $Lightning.use("c:embeddedFlowSchedulerApp",
              function() {
                  $Lightning.createComponent(
