@@ -6,6 +6,7 @@
       <script type='text/javascript' src="https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler/lightning/lightning.out.js"></script>   
       <!-- 2. Add Attributes and inform your salesforce Team to include them in Lightning Scheduler -->      
       <script type='text/javascript'>     
+         console.log('head script loaded');
          const queryString = window.location.search;
          const urlParams = new URLSearchParams(queryString);
          let urlParameter_DivisionCode = urlParams.get('divisionCode')!= null ? urlParams.get('divisionCode') : '';
