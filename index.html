@@ -2,62 +2,35 @@
 <html lang="en">
    <head>
       <title>Salesforce Scheduler Test Embedded</title>
-      
-      <script type='text/javascript' src="https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler/lightning/lightning.out.js"></script>    
-      
+      <!-- 1. Add Script to Header Tag -->
+      <script type='text/javascript' src="https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler/lightning/lightning.out.js"></script>   
+      <!-- 2. Add Attributes and inform your salesforce Team to include them in Lightning Scheduler -->      
       <script type='text/javascript'>     
-          // Retrieve URL parameters
-          const queryString = window.location.search;
-          const urlParams = new URLSearchParams(queryString);
-          
-          // Define variables for passing to the component (handles null values)
-          let urlParameter_DivisionCode = urlParams.get('divisionCode') != null ? urlParams.get('divisionCode') : '';
-          let urlParameter_Language = urlParams.get('languageCode') != null ? urlParams.get('languageCode') : '';
-          
-          console.log("URL Parameters Retrieved:");
-          console.log("Division Code:", urlParameter_DivisionCode);
-          console.log("Language Code:", urlParameter_Language);
-          
-      </script>   
+         const queryString = window.location.search;
+         const urlParams = new URLSearchParams(queryString);
+         let urlParameter_DivisionCode = urlParams.get('divisionCode')!= null ? urlParams.get('divisionCode') : '';
+         let urlParameter_Language = urlParams.get('languageCode')!= null ? urlParams.get('languageCode') : '';
+      </script>  
    </head>
    <body>
       <h1>This is an Integration Test from Salesforce to External Websites</h1>
-      
-      <div id="scheduler">
-         Loading Salesforce Scheduler...
-      </div>
-      
+      <!-- 3. Use this Script alongwith other javascript Code -->     
       <script>
-          $Lightning.use(
-              "c:embeddedFlowSchedulerApp",
-              function() {
-                  console.log("Lightning App loaded successfully. Attempting to create component...");
-                  
-                  $Lightning.createComponent(
-                      "c:embeddedFlowScheduler",
-                      {
-                          // **CRITICAL CHANGE:** Passing URL parameters as attributes to the component.
-                          // 'divisionCode' and 'languageCode' must be defined as public properties (@api in LWC or attribute in Aura) 
-                          // on the 'c:embeddedFlowScheduler' component.
-                          divisionCode: urlParameter_DivisionCode,
-                          languageCode: urlParameter_Language
-                      },
-                      "scheduler", // The DOM location (div id="scheduler")
-                      function(cmp, status, errorMessage) { 
-                          if (status === "SUCCESS") {
-                              console.log("c:embeddedFlowScheduler component created successfully.");
-                              document.getElementById("scheduler").innerHTML = ''; // Clear loading message
-                          } else if (status === "ERROR") {
-                              console.error("ERROR: Component failed to load.", errorMessage);
-                              document.getElementById("scheduler").innerHTML = 'Error loading Scheduler.';
-                          } else {
-                              console.log("Component creation status:", status);
-                          }
-                      }
-                  );
-              },
-              'https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler' // Site endpoint
-          );
+         $Lightning.use("c:embeddedFlowSchedulerApp",
+             function() {
+                 $Lightning.createComponent(
+                     "c:embeddedFlowScheduler",
+                     {},
+                     "scheduler", // the DOM location to insert the component
+                     function() { // API name of the Flow 
+               
+                     }
+                 );
+             },    'https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler'  // Site endpoint
+         );
       </script>
+      <!-- 4. Define an Element where the Appointment Scheduler should be displayed -->
+      <div id="scheduler">
+      </div>
    </body>
 </html>
