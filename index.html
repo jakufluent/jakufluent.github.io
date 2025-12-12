@@ -15,7 +15,10 @@
    </head>
    <body>
       <h1>This is an Integration Test from Salesforce to External Websites</h1>
-      <!-- 3. Use this Script alongwith other javascript Code -->     
+      <!-- 3. Use this Script alongwith other javascript Code -->
+      <!-- 4. Define an Element where the Appointment Scheduler should be displayed -->
+      <div id="schedulerSalesforceDiv">
+      </div>
       <script>
          console.log('lightning loaded: ' + window.$Lightning);
          $Lightning.use("c:embeddedFlowSchedulerApp",
@@ -31,8 +34,5 @@
              },    'https://gge-deu-online--uatfull.sandbox.my.site.com/scheduler'  // Site endpoint
          );
       </script>
-      <!-- 4. Define an Element where the Appointment Scheduler should be displayed -->
-      <div id="schedulerSalesforceDiv">
-      </div>
    </body>
 </html>
